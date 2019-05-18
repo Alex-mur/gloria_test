@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">gloria</string>
+    <string name="loading_text">Loading data...</string>
+    <string name="header_city_id">ID</string>
+    <string name="header_city_name">Название города</string>
+</resources>

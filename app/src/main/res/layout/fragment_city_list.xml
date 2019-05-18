@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/fragment_city_list__tv_header_city_id"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/city_list_header_height"
+        android:gravity="center_vertical"
+        android:text="@string/header_city_id"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@dimen/id_column_width_percent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="@dimen/city_list_header_height"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp"
+        android:text="@string/header_city_name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/fragment_city_list__tv_header_city_id"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@dimen/city_name_column_width_percent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_city_list__rv_cities"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_city_list__tv_header_city_id">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/fragment_city_list__tv_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="@string/loading_text"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

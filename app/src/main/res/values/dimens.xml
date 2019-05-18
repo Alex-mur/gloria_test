@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="id_column_width_percent">0.1</dimen>
+    <dimen name="city_name_column_width_percent">0.9</dimen>
+    <dimen name="city_list_header_height">50dp</dimen>
+</resources>
