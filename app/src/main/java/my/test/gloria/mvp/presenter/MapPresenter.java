@@ -27,14 +27,8 @@ public class MapPresenter extends MvpPresenter<MapView> {
         router.exit();
     }
 
-    public void onResume() {
-    }
-
     public void onMapReady() {
         getViewState().addPositionOnMap(cityName, lat, lon);
-    }
-
-    public void onStop() {
     }
 
     public void setCurrentPosition(String cityName, double lat, double lon) {

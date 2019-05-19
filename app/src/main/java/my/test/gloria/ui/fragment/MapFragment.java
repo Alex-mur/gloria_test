@@ -21,6 +21,7 @@ import my.test.gloria.R;
 import my.test.gloria.mvp.presenter.MapPresenter;
 import my.test.gloria.mvp.view.MapView;
 
+
 public class MapFragment extends MvpAppCompatFragment implements MapView, OnMapReadyCallback {
 
     private static final String ARG_LAT = "arg_lat";
@@ -61,6 +62,30 @@ public class MapFragment extends MvpAppCompatFragment implements MapView, OnMapR
         presenter.setCurrentPosition(bundle.getString(ARG_CITY), bundle.getDouble(ARG_LAT), bundle.getDouble(ARG_LON));
     }
 
+    @Override
+    public void onResume() {
+        map.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        map.onPause();
+        super.onPause();
+    }
+
+    @Override
+    public void onLowMemory() {
+        map.onLowMemory();
+        super.onLowMemory();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+        presenter.onMapReady();
+    }
+
     private void initMap() {
         map = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
@@ -70,33 +95,16 @@ public class MapFragment extends MvpAppCompatFragment implements MapView, OnMapR
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap;
-        presenter.onMapReady();
-    }
-
-    @Override
     public void addPositionOnMap(String title, double lat, double lon) {
         if (googleMap == null) return;
         LatLng position = new LatLng(lat, lon);
         Marker marker = googleMap.addMarker(new MarkerOptions().position(position).title(title));
         marker.showInfoWindow();
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 12));
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        presenter.onStop();
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 12));
     }
 
     public void onBackPressed() {
         presenter.onBackPressed();
     }
+
 }
